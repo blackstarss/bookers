@@ -1,16 +1,16 @@
-<%= form_with model:book, local:true do |f| %>
-<div class="field">
+<%= form_with model:book, local:true  do |f| %>
+<div class="form-group">
   <%= f.label :title, "本のタイトル" %>
-  <%= f.text_field :title %>
+  <%= f.text_field :title, class: "form-control" %>
 </div>
 
-<div class="field">
+<div class="form-group">
   <%= f.label :book, "感想" %>
-  <%= f.text_area :body %>
+  <%= f.text_area :body, class: "form-control" %>
 </div>
 
-<div class="action">
-  <%= f.submit %>
+<div class="text-right">
+  <%= f.submit class:"btn btn-primary btn-xs " %>
 </div>
 <% end %>
 

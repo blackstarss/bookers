@@ -1,10 +1,23 @@
-<body>
-    <p id="notice"></p>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Meshiterro</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+ <body class="d-flex flex-column vh-100">
+  <div class="container-fluid">
+  
+  　      <p id="notice"></p>
 
 <h1>Books</h1>
 
-<table>
-  <thead>
+<table class="table table-bordered col-6 ">
+  <thead class="thead-dark">
     <tr>
       <th>title</th>
       <th>body</th>
@@ -14,24 +27,29 @@
   
    <% @books.each do |book| %>
   <tbody>
-   
-    <tr>
-      <td><%= book.title %></td>
-      <td><%= book.body %></td>
-      <td><%= link_to "show",book_path(book)%></td>
+    <tr class="table-success">
+      <td class="col-3"><%= book.title %></td>
+      <td class="col-6"><%= book.body %></td>
+      <td class="col-1"><%= link_to "show",book_path(book)%></td>
       <!--each文の中はインスタンス変数を使用しない-->
-      <td><%= link_to "edit", edit_book_path(book) %></td>
-      <td><%= link_to "Destroy", book_path(book), method: :delete, data: { confirm: 'Are you sure?'} %></td>
+      <td class="col-1"><%= link_to "edit", edit_book_path(book) %></td>
+      <td class="col-1"><%= link_to "Destroy", book_path(book), method: :delete, data: { confirm: 'Are you sure?'} %></td>
     </tr>
     <% end %>
   </tbody>
 </table>
 
 <h2>New book</h2>
-<div>
+<div class="col-sm-2" style="background-color:yellow;">
   <%=render "books/error", book: @book %>
   <%=render "books/form", book: @book %>
 </div>
+  　  
+  　</div>
+  </div>
+
 
 
 </body>
+
+</html>
